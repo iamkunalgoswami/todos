@@ -49,7 +49,7 @@ export default function AddNewTodo(props) {
         }
         else {
             const newTodo = {
-                id: Date.now(),
+                id: props.todoItems.length > 0 ? props.todoItems[props.todoItems.length - 1].id + 1 : 1,
                 description: description,
                 assignee: assignee,
                 isCompleted: false

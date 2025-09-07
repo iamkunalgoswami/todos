@@ -13,6 +13,7 @@ function TodoTable(props) {
             <tbody>
                 {props.todoItems.map(
                     (todo) => <TodoRowItem
+                        key={todo.id}
                         rowNumber={todo.id}
                         description={todo.description}
                         assignee={todo.assignee}
