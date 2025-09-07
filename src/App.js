@@ -3,13 +3,13 @@ import './App.css';
 
 function App() {
   return (
-    <div>
-      <div>
-        <div>
+    <div className='mt-5 container'>
+      <div className='card'>
+        <div className='card-header'> 
           <h1>My Todo List</h1>
         </div>
-        <div>
-          <table>
+        <div className='card-body'>
+          <table className='table table-hover'>
             <thead>
               <tr>
                 <th scope='col'>#</th>
