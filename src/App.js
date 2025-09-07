@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import TodoRowItem from './components/TodoRowItem';
 
 function App() {
   return (
@@ -18,11 +19,7 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td scope='row'>1</td>
-                <td scope='row'>Learn React</td>
-                <td scope='row'>John Doe</td>
-              </tr>
+              <TodoRowItem/>
               <tr>
                 <td scope='row'>2</td>
                 <td scope='row'>Learn Java</td>
