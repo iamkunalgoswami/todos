@@ -11,7 +11,7 @@ function TodoTable(props) {
                 </tr>
             </thead>
             <tbody>
-                {props.TodoTableItem.map(
+                {props.todoItems.map(
                     (todo) => <TodoRowItem
                         rowNumber={todo.id}
                         description={todo.description}

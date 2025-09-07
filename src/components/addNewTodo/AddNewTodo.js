@@ -1,0 +1,68 @@
+import { useState } from "react";
+import TodoTableItem from "./../../utils/TodoTableItem";
+
+export default function AddNewTodo(props) {
+    const [description, setDescription] = useState("");
+    const [assignee, setAssignee] = useState("");
+
+    return (
+        <div>
+            <h2>Add New Todo</h2>
+            <form>
+                <div className="mb-3">
+                    <label htmlFor="description" className="form-label">Description</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="description"
+                        onChange={(e) => setDescription(e.target.value)}
+                        value={description}
+                    />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="assignee" className="form-label">Assignee</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="assignee"
+                        onChange={(e) => setAssignee(e.target.value)}
+                        value={assignee}
+                    />
+                </div>
+                <button
+                    type="submit"
+                    className="btn btn-primary"
+                    onClick={handleAddNewTodo}
+                >Add Todo
+                </button>
+            </form>
+        </div>
+    );
+
+    function handleAddNewTodo(event) {
+        event.preventDefault();
+        const description = document.getElementById('description').value;
+        const assignee = document.getElementById('assignee').value;
+        if (description === "" || assignee === "") {
+            alert("Please fill all the fields");
+            return;
+        }
+        else {
+            const newTodo = {
+                id: Date.now(),
+                description: description,
+                assignee: assignee,
+                isCompleted: false
+            };
+            console.log(newTodo);
+            props.setTodoItems(todoItems => [...todoItems, newTodo]);
+        }
+        // Create a new todo item
+
+        document.getElementById('add-todo').style.visibility = 'visible';
+        document.getElementById('add-new-todo').style.visibility = 'hidden';
+        console.log(TodoTableItem);
+        console.log(props.todoItems);
+
+    };
+};
