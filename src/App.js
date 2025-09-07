@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import TodoRowItem from './components/TodoRowItem';
+import TodoRowItem from './components/todoTable/TodoRowItem';
+import TodoTableItem from './utils/constants/TodoTableItem';
+import TodoTable from './components/todoTable/TodoTable';
 
 function App() {
   return (
@@ -10,26 +12,9 @@ function App() {
           <h1>My Todo List</h1>
         </div>
         <div className='card-body'>
-          <table className='table table-hover'>
-            <thead>
-              <tr>
-                <th scope='col'>#</th>
-                <th scope='col'>Task</th>
-                <th scope='col'>Assignee</th>
-              </tr>
-            </thead>
-            <tbody>
-              <TodoRowItem/>
-              <tr>
-                <td scope='row'>2</td>
-                <td scope='row'>Learn Java</td>
-                <td scope='row'>John Mark</td>
-              </tr>
-            </tbody>
-          </table>
+          <TodoTable TodoTableItem={TodoTableItem} />
         </div>
       </div>
-
     </div>
   );
 }
