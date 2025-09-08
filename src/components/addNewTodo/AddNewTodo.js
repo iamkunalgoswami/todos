@@ -1,5 +1,4 @@
 import { useState } from "react";
-import TodoTableItem from "./../../utils/TodoTableItem";
 
 export default function AddNewTodo(props) {
     const [description, setDescription] = useState("");
@@ -48,6 +47,7 @@ export default function AddNewTodo(props) {
             return;
         }
         else {
+            // Create a new todo item
             const newTodo = {
                 id: props.todoItems.length > 0 ? props.todoItems[props.todoItems.length - 1].id + 1 : 1,
                 description: description,
@@ -57,12 +57,8 @@ export default function AddNewTodo(props) {
             console.log(newTodo);
             props.setTodoItems(todoItems => [...todoItems, newTodo]);
         }
-        // Create a new todo item
-
-        document.getElementById('add-todo').style.visibility = 'visible';
-        document.getElementById('add-new-todo').style.visibility = 'hidden';
-        console.log(TodoTableItem);
-        console.log(props.todoItems);
-
+        setDescription("");
+        setAssignee("");
+        props.setShowTodoForm(showTodoForm => !showTodoForm);
     };
 };
